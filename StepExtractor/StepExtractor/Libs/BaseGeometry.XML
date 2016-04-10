@@ -1,0 +1,1200 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>BaseGeometry</name>
+    </assembly>
+    <members>
+        <member name="T:BaseGeometryYVP.ErrObject">
+            <summary>
+            Класс, отслеживающий ошибки при выполнении
+            </summary>
+        </member>
+        <member name="P:BaseGeometryYVP.ErrObject.Number">
+            <summary>
+            Номер ошибки
+            </summary>
+        </member>
+        <member name="P:BaseGeometryYVP.ErrObject.Description">
+            <summary>
+            Описание ошибки
+            </summary>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.Point2D.#ctor">
+            <summary>Инициализирует новый экземпляр 2D точки</summary>
+            <remarks>Исходные координаты точки: X=0; Y=0</remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.Point2D.#ctor(System.Double,System.Double)">
+            <summary>Инициализирует новый экземпляр 2D точки с указанными координатами</summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.Point2D.#ctor(BaseGeometryYVP.GeomObjects.Point2D)">
+            <summary>Инициализирует новый экземпляр 2D точки</summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.Point2D.PointMove(System.Double,System.Double)">
+            <summary>Передвигает ранее заданную 2D точку (изменяет коодинаты на указанные величины по осям в 2D)</summary>
+            <remarks>Point3D.X += dx; Point3D.Y += dy</remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.Point2D.PointByText(System.String,System.String,System.Enum@)">
+            <summary> Задает 2D точку, двумя координатами, представленными в текстовом формате </summary>
+            <remarks> При корректном задании значений параметров проекций возвращает значение перечислителя: 0 = "CoordinateValue.None"  </remarks>
+            <param name="X_Text"> Значение первой координаты в формате "String"</param>
+            <param name="Y_Text"> Значение второй координаты в формате "String"</param>
+            <param name="ProectionError"> Значение перечислителя, указывающего индексы координат, для которых отсутствуют значения параметров</param>
+            <returns> BaseGeometryYVP.GeomObjects.Point2D; в случае отсутсвия значений параметров возвращает возвращает "Nothing" и номер перечислителя "CoordinateValue", указывающего индексы координат, для которых не заданы значения, т.е. имеющие строковое значение "Nothing"</returns>
+        </member>
+        <member name="P:BaseGeometryYVP.GeomObjects.Point2D.X">
+            <summary>Получает или задает координату X точки</summary>
+            <remarks></remarks>
+        </member>
+        <member name="P:BaseGeometryYVP.GeomObjects.Point2D.Y">
+            <summary>Получает или задает координату Y точки</summary>
+            <remarks></remarks>
+        </member>
+        <member name="T:BaseGeometryYVP.GeomObjects.Point3D">
+            <summary>Класс для расчета параметров 3D точки</summary>
+            <remarks>Copyright © Polozkov V. Yury, 2015</remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.Point3D.#ctor">
+            <summary>Инициализация нового экземпляра 3D точки</summary>
+            <remarks>Исходные координаты точки: X=0; Y=0; Z=0</remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.Point3D.#ctor(System.Double,System.Double,System.Double)">
+            <summary>Инициализирует новый экземпляр 3D точки с указанными координатами</summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.Point3D.#ctor(BaseGeometryYVP.GeomObjects.Point3D)">
+            <summary>Инициализирует новый экземпляр 3D точки</summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.Point3D.#ctor(BaseGeometryYVP.GeomObjects.Point2D,System.Double)">
+            <summary>Преобразует 2D точку в 3D точку путем добавления третьей координаты</summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.Point3D.TransformPoint2DTo3D(BaseGeometryYVP.GeomObjects.Point2D,System.Double)">
+            <summary>Преобразует 2D точку в 3D точку путем добавления третьей координаты</summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.Point3D.TransformPoint2DTo3D(BaseGeometryYVP.GeomObjects.Point2D)">
+            <summary>Преобразует 2D точку в 3D точку путем добавления третьей координаты, равной нулю</summary>
+            <remarks>Координата Z=0</remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.Point3D.PointMove(System.Double,System.Double,System.Double)">
+            <summary>Передвигает ранее заданную 3D точку
+            (изменяет коодинаты на указанные величины по осям в 3D)
+            </summary>
+            <remarks>Point3D.X += dx; Point3D.Y += dy; Point3D.Z += dz</remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.Point3D.PointOf_1PlanX0Y(BaseGeometryYVP.GeomObjects.Point3D)">
+            <summary>Получает или задает координаты проекции 3D точки на плоскость X0Y пространственной системы координат</summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.Point3D.PointOf_2PlanX0Z(BaseGeometryYVP.GeomObjects.Point3D)">
+            <summary>Возвращает проекцию 3D точки на плоскость X0Y пространственной системы координат</summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.Point3D.PointOf_3PlanY0Z(BaseGeometryYVP.GeomObjects.Point3D)">
+            <summary>Возвращает проекцию 3D точки на плоскость X0Y пространственной системы координат</summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.Point3D.PointOfPlan_ToPoint2D(BaseGeometryYVP.GeomObjects.PointOfPlan1_X0Y)">
+            <summary>Конвертирует проекцию 3D точки в GeomObjects.Point2D</summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.Point3D.PointOfPlan_ToPoint2D(BaseGeometryYVP.GeomObjects.PointOfPlan2_X0Z)">
+            <summary>Конвертирует проекцию 3D точки в GeomObjects.Point2D</summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.Point3D.PointOfPlan_ToPoint2D(BaseGeometryYVP.GeomObjects.PointOfPlan3_Y0Z)">
+            <summary> Конвертирует проекцию 3D точки в GeomObjects.Point2D</summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.Point3D.PointBy3Proections(BaseGeometryYVP.GeomObjects.PointOfPlan1_X0Y,BaseGeometryYVP.GeomObjects.PointOfPlan2_X0Z,BaseGeometryYVP.GeomObjects.PointOfPlan3_Y0Z,BaseGeometryYVP.ErrObject@,System.Boolean)">
+            <summary> Задает 3D точку по трем (горизонтальной, фронтальной, и профильной) проекциям</summary>
+            <remarks> При неправильном заднии проекций возвращает "Nothing" </remarks>
+            <param name="Point_Pi1"> Горизонтальная проекция 3D точки</param>
+            <param name="Point_Pi2"> Фронтальная проекция 3D точки</param>
+            <param name="Point_Pi3"> Профильная проекция 3D точки</param>
+            <returns> BaseGeometryYVP.GeomObjects.Point3D </returns> 
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.Point3D.PointBy2Proections12(BaseGeometryYVP.GeomObjects.PointOfPlan1_X0Y,BaseGeometryYVP.GeomObjects.PointOfPlan2_X0Z,BaseGeometryYVP.ErrObject@,System.Boolean)">
+            <summary> Задает 3D точку, заданную двумя (горизонтальной и фронтальной) проекциями</summary>
+            <remarks> При неправильном заднии проекций возвращает "Nothing" </remarks>
+            <param name="Point_Pi1"> Горизонтальная проекция 3D точки</param>
+            <param name="Point_Pi2"> Фронтальная проекция 3D точки</param>
+            <returns> BaseGeometryYVP.GeomObjects.Point3D </returns>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.Point3D.PointBy2Proections13(BaseGeometryYVP.GeomObjects.PointOfPlan1_X0Y,BaseGeometryYVP.GeomObjects.PointOfPlan3_Y0Z,BaseGeometryYVP.ErrObject@,System.Boolean)">
+            <summary> Задает 3D точку, заданную двумя (горизонтальной и профильной) проекциями</summary>
+            <remarks> При неправильном заднии проекций возвращает "Nothing" </remarks>
+            <param name="Point_Pi1"> Горизонтальная проекция 3D точки</param>
+            <param name="Point_Pi3"> Профильная проекция 3D точки</param>
+            <returns> BaseGeometryYVP.GeomObjects.Point3D </returns>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.Point3D.PointBy2Proections23(BaseGeometryYVP.GeomObjects.PointOfPlan2_X0Z,BaseGeometryYVP.GeomObjects.PointOfPlan3_Y0Z,BaseGeometryYVP.ErrObject@,System.Boolean)">
+            <summary> Задает 3D точку, заданную двумя (фронтальной и профильной) проекциями</summary>
+            <remarks> При неправильном заднии проекций возвращает "Nothing" </remarks>
+            <param name="Point_Pi2"> Фронтальня проекция 3D точки</param>
+            <param name="Point_Pi3"> Профильная проекция 3D точки</param>
+            <returns> BaseGeometryYVP.GeomObjects.Point3D </returns>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.Point3D.PointByText(System.String,System.String,System.String,BaseGeometryYVP.GeomObjects.PointsPositionControl.CoordinateValue)">
+            <summary> Задает 3D точку, тремя координатами, представленными в текстовом формате </summary>
+            <remarks> При корректном задании значений параметров проекций возвращает значение перечислителя: 0 = "CoordinateValue.None"  </remarks>
+            <param name="X_Text"> Значение первой координаты в формате "String"</param>
+            <param name="Y_Text"> Значение второй координаты в формате "String"</param>
+            <param name="Z_Text"> Значение третьей координаты в формате "String"</param>
+            <param name="ProectionError"> Значение перечислителя, указывающего индексы координат, для которых отсутствуют значения параметров</param>
+            <returns> BaseGeometryYVP.GeomObjects.Point3D; в случае отсутсвия значений параметров возвращает возвращает "Nothing" и номер перечислителя "CoordinateValue", указывающего индексы координат, для которых не заданы значения, т.е. имеющие строковое значение "Nothing"</returns>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.Point3D.PointByText(System.String,System.String,System.String,System.Enum,System.String,System.String)">
+            <summary> Задает 3D точку, заданную тремя координатами в текстовом формате </summary>
+            <remarks> При корректном задании значений параметров проекций возвращает значение перечислителя: 0 = "CoordinateValue.None". Позволяет вставлять комментарии до и после индексов координат в MsgBox, возникающий в случае существования значения "Nothing"</remarks>
+            <param name="X_Text"> Значение первой координаты в формате "String"</param>
+            <param name="Y_Text"> Значение второй координаты в формате "String"</param>
+            <param name="Z_Text"> Значение третьей координаты в формате "String"</param>
+            <param name="ProectionError"> Значение перечислителя, указывающего индексы координат, для которых отсутствуют значения параметров</param>
+            <param name="CommentBefore"> Комментарий верхней строки перед индексами координат </param>
+            <param name="CommentAfter"> Комментарий верхней строки после индексов координат </param>
+            <returns> BaseGeometryYVP.GeomObjects.Point3D; в случае отсутсвия значений параметров возвращает возвращает "Nothing" и номер перечислителя "CoordinateValue", указывающего индексы координат, для которых не заданы значения, т.е. имеющие строковое значение "Nothing"</returns>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.Point3D.PointByText(System.String,System.String,System.String,System.Enum,System.String)">
+            <summary> Задает 3D точку, заданную тремя координатами в текстовом формате </summary>
+            <remarks> При корректном задании значений параметров проекций возвращает значение перечислителя: 0 = "CoordinateValue.None". Позволяет вставлять комментарий в MsgBox, возникающий в случае существования значения "Nothing"</remarks>
+            <param name="X_Text"> Значение первой координаты в формате "String"</param>
+            <param name="Y_Text"> Значение второй координаты в формате "String"</param>
+            <param name="Z_Text"> Значение третьей координаты в формате "String"</param>
+            <param name="ProectionError"> Значение перечислителя, указывающего индексы координат, для которых отсутствуют значения параметров</param>
+            <param name="Comment"> Комментарий для пояснения ошибки, возникающей в случае отсутсвия значений параметров</param>
+            <returns> BaseGeometryYVP.GeomObjects.Point3D; в случае отсутсвия значений параметров возвращает возвращает "Nothing" и номер перечислителя "CoordinateValue", указывающего индексы координат, для которых не заданы значения, т.е. имеющие строковое значение "Nothing"</returns>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.Point3D.PointByText(System.String,System.String,System.String,System.Enum,System.Boolean)">
+            <summary> Задает 3D точку, заданную тремя координатами в текстовом формате </summary>
+            <remarks> При корректном задании значений параметров проекций возвращает значение перечислителя: 0 = "CoordinateValue.None". Позволяет включать\отключать MsgBox, возникающий в случае существования значения "Nothing"</remarks>
+            <param name="X_Text"> Значение первой координаты в формате "String"</param>
+            <param name="Y_Text"> Значение второй координаты в формате "String"</param>
+            <param name="Z_Text"> Значение третьей координаты в формате "String"</param>
+            <param name="ProectionError"> Значение перечислителя, указывающего индексы координат, для которых отсутствуют значения параметров</param>
+            <param name="MsgBoxShow"> MessagerBox с комментарием, возникающей в случае отсутсвия значений параметров</param>
+            <returns> BaseGeometryYVP.GeomObjects.Point3D; в случае отсутсвия значений параметров возвращает возвращает "Nothing" и номер перечислителя "CoordinateValue", указывающего индексы координат, для которых не заданы значения, т.е. имеющие строковое значение "Nothing"</returns>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.Point3D.PointLength">
+            <summary>Возвращает расстояние от начала координат до 3D точки</summary>
+            <remarks>По умолчанию начало координат в точке (0; 0; 0)</remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.Point3D.PointDistantion(System.Double,System.Double,System.Double)">
+            <summary>Возвращает расстояние от ранее заданной 3D точки до 3D точки, заданной указанными координатами</summary>
+            <remarks>По умолчанию ранее заданная 3D точка имеет координаты (0; 0; 0)</remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.Point3D.PointDistantion(BaseGeometryYVP.GeomObjects.Point3D)">
+            <summary>Возвращает расстояние от ранее заданной 3D точки до указанной 3D точки</summary>
+            <remarks>По умолчанию ранее заданная 3D точка имеет координаты (0; 0; 0)</remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.Point3D.PointDistantion(BaseGeometryYVP.GeomObjects.Point3D,BaseGeometryYVP.GeomObjects.Point3D)">
+            <summary>Возвращает расстояние от первой 3D точки до второй 3D точки</summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.Point3D.PointsIsPoints(BaseGeometryYVP.GeomObjects.Point3D,BaseGeometryYVP.GeomObjects.Point3D)">
+            <summary>Возвращает значение "TRUE", если совпадают заданные точки</summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.Point3D.PointsIsPoints(BaseGeometryYVP.GeomObjects.Point3D[])">
+            <summary>Возвращает значение "TRUE", если все точки заданного массива совпадают</summary>
+            <remarks></remarks>
+        </member>
+        <member name="P:BaseGeometryYVP.GeomObjects.Point3D.Z">
+            <summary>Получает или задает координату Z точки</summary>
+            <remarks></remarks>
+        </member>
+        <member name="P:BaseGeometryYVP.GeomObjects.Point3D.Point">
+            <summary>Получает или задает 3D точку</summary>
+            <remarks></remarks>
+        </member>
+        <member name="P:BaseGeometryYVP.GeomObjects.Point3D.PointOfPlan1_X0Y">
+            <summary>Получает или задает координаты проекции 3D точки на плоскость X0Y пространственной системы координат</summary>
+            <remarks></remarks>
+        </member>
+        <member name="P:BaseGeometryYVP.GeomObjects.Point3D.PointOfPlan2_X0Z">
+            <summary>Получает или задает координаты проекции 3D точки на плоскость X0Z пространственной системы координат</summary>
+            <remarks></remarks>
+        </member>
+        <member name="P:BaseGeometryYVP.GeomObjects.Point3D.PointOfPlan3_Y0Z">
+            <summary>Получает или задает координаты проекции 3D точки на плоскость Y0Z пространственной системы координат</summary>
+            <remarks></remarks>
+        </member>
+        <member name="T:BaseGeometryYVP.GeomObjects.PointCalculator">
+            <summary>
+            Класс действий с параметрами 2D и 3D точек
+            </summary>
+            Copyright © Polozkov V. Yury, 2013
+            <remarks>Copyright © Polozkov V. Yury, 2015</remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointCalculator.PointLength(BaseGeometryYVP.GeomObjects.Point3D)">
+            <summary>Возвращает расстояние от начала координат до точки</summary>
+            <remarks>По умолчанию начало координат в точке (0; 0; 0)</remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointCalculator.PointDistantion(System.Double,System.Double)">
+            <summary>Возвращает расстояние от ранее заданной 2D точки до 2D точки, заданной указанными координатами</summary>
+            <remarks>По умолчанию ранее заданная 2D точка имеет координаты (0; 0)</remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointCalculator.PointDistantion(System.Double,System.Double,System.Double,System.Double)">
+            <summary>Возвращает расстояние от ранее заданной 2D точки до 2D точки, заданной указанными координатами</summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointCalculator.PointDistantion(BaseGeometryYVP.GeomObjects.Point2D)">
+            <summary>Возвращает расстояние от ранее заданной 2D точки до 2D точки, заданной указанными координатами</summary>
+            <remarks>По умолчанию ранее заданная 2D точка имеет координаты (0; 0)</remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointCalculator.PointDistantion(BaseGeometryYVP.GeomObjects.Point2D,BaseGeometryYVP.GeomObjects.Point2D)">
+            <summary>Возвращает расстояние от первой 2D точки до второй 2D точки</summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointCalculator.PointDistantion(System.Double,System.Double,System.Double)">
+            <summary>Возвращает расстояние от ранее заданной 3D точки до 3D точки, заданной указанными координатами</summary>
+            <remarks>По умолчанию ранее заданная 3D точка имеет координаты (0; 0; 0)</remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointCalculator.PointDistantion(System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
+            <summary>Возвращает расстояние от ранее заданной 3D точки до 3D точки, заданной указанными координатами</summary>
+            <remarks>По умолчанию ранее заданная 3D точка имеет координаты (0; 0; 0)</remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointCalculator.PointDistantion(BaseGeometryYVP.GeomObjects.Point3D)">
+            <summary>Возвращает расстояние от ранее заданной 3D точки до указанной 3D точки</summary>
+            <remarks>По умолчанию ранее заданная 3D точка имеет координаты (0; 0; 0)</remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointCalculator.PointDistantion(BaseGeometryYVP.GeomObjects.Point3D,BaseGeometryYVP.GeomObjects.Point3D)">
+            <summary>Возвращает расстояние от первой 3D точки до второй 3D точки</summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointCalculator.PointDeltaX(BaseGeometryYVP.GeomObjects.Point2D,BaseGeometryYVP.GeomObjects.Point2D)">
+            <summary>Возвращает приращениe координаты X от первой 2D точки до второй 2D точки</summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointCalculator.PointDeltaY(BaseGeometryYVP.GeomObjects.Point2D,BaseGeometryYVP.GeomObjects.Point2D)">
+            <summary>Возвращает приращениe координаты Y от первой 2D точки до второй 2D точки</summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointCalculator.PointDelta(BaseGeometryYVP.GeomObjects.Point2D,BaseGeometryYVP.GeomObjects.Point2D,System.Double@,System.Double@)">
+            <summary>Возвращает (по ссылке "ref") приращения координат X и Y от первой 2D точки до второй 2D точки</summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointCalculator.PointDeltaX(BaseGeometryYVP.GeomObjects.Point3D,BaseGeometryYVP.GeomObjects.Point3D)">
+            <summary>Возвращает приращениe координаты X от первой 3D точки до второй 3D точки</summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointCalculator.PointDeltaY(BaseGeometryYVP.GeomObjects.Point3D,BaseGeometryYVP.GeomObjects.Point3D)">
+            <summary>Возвращает приращениe координаты Y от первой 2D точки до второй 3D точки</summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointCalculator.PointDeltaZ(BaseGeometryYVP.GeomObjects.Point3D,BaseGeometryYVP.GeomObjects.Point3D)">
+            <summary>Возвращает приращениe координаты Z от первой 3D точки до второй 3D точки</summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointCalculator.PointDelta(BaseGeometryYVP.GeomObjects.Point2D,BaseGeometryYVP.GeomObjects.Point2D,System.Double@,System.Double@,System.Double@)">
+            <summary>Возвращает (по ссылке "ref") приращения координат X и Y от первой 2D точки до второй 2D точки</summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointCalculator.PointDelta(BaseGeometryYVP.GeomObjects.Point3D,BaseGeometryYVP.GeomObjects.Point3D,System.Double@,System.Double@,System.Double@)">
+            <summary>Возвращает (по ссылке "ref") приращения координат X и Y от первой 3D точки до второй 3D точки</summary>
+            <remarks></remarks>
+        </member>
+        <member name="T:BaseGeometryYVP.GeomObjects.PointDraw">
+            <summary>Класс отрисовки точки </summary>
+            <remarks>Copyright © Polozkov V. Yury, 2015</remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointDraw.#ctor">
+            <summary>Инициализация нового экземпляра PointDraw</summary>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointDraw.#ctor(BaseGeometryYVP.GeomObjects.Point3D)">
+            <summary>
+            Инициализация нового экземпляра PointDraw
+            </summary>
+            <param name="Point3D_Source">Заданная 3D точка</param>
+            <remarks></remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointDraw.#ctor(BaseGeometryYVP.GeomObjects.Point3D,System.Drawing.Point)">
+            <summary>
+            Инициализация нового экземпляра PointDraw
+            </summary>
+            <param name="Point3D_Source">Заданная 3D точка</param>
+            <remarks></remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointDraw.#ctor(BaseGeometryYVP.GeomObjects.Point3D,System.Int32,System.Int32,System.Int32,System.Drawing.Point)">
+            <summary>
+            Инициализация нового экземпляра PointDraw
+            </summary>
+            <param name="Point3D_Source">Заданная 3D точка</param>
+            <remarks></remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointDraw.#ctor(BaseGeometryYVP.GeomObjects.PointOfPlan1_X0Y,BaseGeometryYVP.GeomObjects.PointOfPlan2_X0Z,BaseGeometryYVP.GeomObjects.PointOfPlan3_Y0Z)">
+            <summary>
+            Инициализация нового экземпляра PointDraw по трем проекциям 3D точки
+            </summary>
+            <param name="PointOfPlan1_X0Y_Source">Заданная горизонтальная проекция 3D точки</param>
+            <param name="PointOfPlan2_X0Z_Source">Заданная фронтальная проекция 3D точки</param>
+            <param name="PointOfPlan3_Y0Z_Source">Заданная профильная проекция 3D точки</param>
+            <remarks>В случае отсутсвия даннаых о проекции в качестве соответсвующего входного фактора следует установить значение "null"</remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointDraw.#ctor(BaseGeometryYVP.GeomObjects.PointOfPlan1_X0Y,BaseGeometryYVP.GeomObjects.PointOfPlan2_X0Z,BaseGeometryYVP.GeomObjects.PointOfPlan3_Y0Z,System.Drawing.Point)">
+            <summary>
+            Инициализация нового экземпляра PointDraw
+            </summary>
+            <param name="PointOfPlan1_X0Y_Source">Заданная горизонтальная проекция 3D точки</param>
+            <param name="PointOfPlan2_X0Z_Source">Заданная фронтальная проекция 3D точки</param>
+            <param name="PointOfPlan3_Y0Z_Source">Заданная профильная проекция 3D точки</param>
+            <param name="FrameCentre_Source">Точка, соотвествующая центру заданной системе координат</param>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointDraw.#ctor(BaseGeometryYVP.GeomObjects.PointOfPlan1_X0Y,BaseGeometryYVP.GeomObjects.PointOfPlan2_X0Z,BaseGeometryYVP.GeomObjects.PointOfPlan3_Y0Z,System.Int32,System.Int32,System.Int32,System.Drawing.Point)">
+            <summary>
+            Инициализация нового экземпляра PointDraw
+            </summary>
+            <param name="PointOfPlan1_X0Y_Source">Заданная горизонтальная проекция 3D точки</param>
+            <param name="PointOfPlan2_X0Z_Source">Заданная фронтальная проекция 3D точки</param>
+            <param name="PointOfPlan3_Y0Z_Source">Заданная профильная проекция 3D точки</param>
+            <param name="PointX0Y_Diametre">Диаметр инструмента рисования горизонтальной проекции 3D точки</param>
+            <param name="PointX0Z_Diametre">Диаметр инструмента рисования фронтальной проекции 3D точки</param>
+            <param name="PointY0Z_Diametre">Диаметр инструмента рисования профильной проекции 3D точки</param>
+            <param name="FrameCentre_Source">Точка, соотвествующая центру заданной системе координат</param>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointDraw.CnvPoint3DProjection_ToPoint(BaseGeometryYVP.GeomObjects.PointOfPlan1_X0Y)">
+            <summary>
+            Конвертирует заданную проекцию 3D точки на плоскость X0Y в System.Drawing.Point
+            </summary>
+            <param name="PointProjection">Заданная проекция 3D точки на плоскость X0Y</param>
+            <returns>Point.X = -PointOfPlan1_X0Y.X; Point.Y = PointOfPlan1_X0Y.Y</returns>
+            <remarks>Для отрисовки точки начало системы координат определяется координатами X=0; Y=0 и расположено не в крайней или угловой точке изображения</remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointDraw.CnvPoint3DProjection_ToPoint(BaseGeometryYVP.GeomObjects.PointOfPlan2_X0Z)">
+            <summary>
+            Конвертирует заданную проекцию 3D точки на плоскость X0Z в System.Drawing.Point
+            </summary>
+            <param name="PointProjection">Заданная проекция 3D точки на плоскость X0Z</param>
+            <returns>Point.X = -PointOfPlan2_X0Z.X; Point.Y = -PointOfPlan2_X0Z.Z</returns>
+            <remarks>Для отрисовки точки начало системы координат определяется координатами X=0; Y=0 и расположено не в крайней или угловой точке изображения</remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointDraw.CnvPoint3DProjection_ToPoint(BaseGeometryYVP.GeomObjects.PointOfPlan3_Y0Z)">
+            <summary>
+            Конвертирует заданную проекцию 3D точки на плоскость Y0Z в System.Drawing.Point
+            </summary>
+            <param name="PointProjection">Заданная проекция 3D точки на плоскость Y0Z</param>
+            <returns>Point.X = PointOfPlan2_Y0Z.Y; Point.Y = -PointOfPlan2_Y0Z.Z</returns>
+            <remarks>Для отрисовки точки начало системы координат определяется координатами X=0; Y=0 и расположено не в крайней или угловой точке изображения</remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointDraw.CnvPoint2D_ToPoint(BaseGeometryYVP.GeomObjects.Point2D)">
+            <summary>
+            Преобразует точку формата BaseGeometryYVP.GeomObjects.Point2D в System.Drawing.Point
+            </summary>
+            <param name="Point2D_Source">Заданная 2D точка</param>
+            <returns>Point.X = Point2D_Source.X; Point.Y = Point2D_Source.Y</returns>
+            <remarks>Для отрисовки точки начало системы координат определяется координатами X=0; Y=0</remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointDraw.CnvPoint2D_ToPointF(BaseGeometryYVP.GeomObjects.Point2D)">
+            <summary>
+            Преобразует точку формата BaseGeometryYVP.GeomObjects.Point2D в System.Drawing.PointF
+            </summary>
+            <param name="Point2D_Source">Заданная 2D точка</param>
+            <returns>PointF.X = Point2D_Source.X; PointF.Y = Point2D_Source.Y</returns>
+            <remarks>Для отрисовки точки начало системы координат определяется координатами X=0; Y=0</remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointDraw.CnvPoint3D_ToAxonometryPoint(BaseGeometryYVP.GeomObjects.Point3D)">
+            <summary>
+            Преобразует точку формата BaseGeometryYVP.GeomObjects.Point(3D) в System.Drawing.Point (аксонометричекую проекцию)
+            </summary>
+            <param name="Point3D_Source">Заданная 3D точка</param>
+            <returns></returns>
+            <remarks>Для отрисовки точки начало системы координат определяется координатами X=0; Y=0</remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointDraw.CnvPoint3D_ToAxonometryPointF(BaseGeometryYVP.GeomObjects.Point3D)">
+            <summary>
+            Преобразует точку формата BaseGeometryYVP.GeomObjects.Point(3D) в System.Drawing.PointF (аксонометричекую проекцию)
+            </summary>
+            <param name="Point3D_Source">Заданная 3D точка</param>
+            <returns></returns>
+            <remarks>Для отрисовки точки начало системы координат определяется координатами X=0; Y=0</remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointDraw.Point_PositionCorrection(System.Drawing.Point,System.Single,System.Drawing.Point)">
+            <summary>
+            Коррректирует положение заданной точки с учетом заданного центра системы координат и радиуса точки
+            </summary>
+            <param name="Point3D_Source">Заданная точка</param>
+            <param name="Point_Radius">Заданный радиус точки (равен ширине объекта "System.Drawing.Pen")</param>
+            <param name="FrameCentre_Source">Заданный центр системы координат</param>
+            <returns></returns>
+            <remarks>Возвращает точку со скорректированными координатами в зависимости от положения заданного центра системы координат и радиуса точки</remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointDraw.CnvPoint_ToPointOfPlan1_X0Y(System.Drawing.Point)">
+            <summary>
+            Конвертирует точку, заданную в формате System.Drawing.Point в проекцию 3D точки на плоскость X0Y 
+            </summary>
+            <param name="Point_Source">Точка, заданная в формате System.Drawing.Point</param>
+            <returns>PointOfPlan1_X0Y.X = -Point_Source.X; PointOfPlan1_X0Y.Y = Point_Source.Y</returns>
+            <remarks>Для отрисовки точки начало системы координат определяется координатами X=0; Y=0 и расположено не в крайней или угловой точке изображения. 
+            Не проверяет корректность координат возвращаемой проекции точки для формирования 3D точки.</remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointDraw.CnvPoint_ToPointOfPlan2_X0Z(System.Drawing.Point)">
+            <summary>
+            Конвертирует точку, заданную в формате System.Drawing.Point в проекцию 3D точки на плоскость X0Z
+            </summary>
+            <param name="Point_Source">Точка, заданная в формате System.Drawing.Point</param>
+            <returns>PointOfPlan2_X0Z.X = -Point_Source.X; PointOfPlan2_X0Z.Z = -Point_Source.Y</returns>
+            <remarks>Для отрисовки точки начало системы координат определяется координатами X=0; Y=0 и расположено не в крайней или угловой точке изображения. 
+            Не проверяет корректность координат возвращаемой проекции точки для формирования 3D точки.</remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointDraw.CnvPoint_ToPointOfPlan3_Y0Z(System.Drawing.Point)">
+            <summary>
+            Конвертирует точку, заданную в формате System.Drawing.Point в проекцию 3D точки на плоскость Y0Z
+            </summary>
+            <param name="Point_Source">Точка, заданная в формате System.Drawing.Point</param>
+            <returns>PointOfPlan3_Y0Z.Y = Point_Source.X; PointOfPlan3_Y0Z.Z = Point_Source.Y</returns>
+            <remarks>Для отрисовки точки начало системы координат определяется координатами X=0; Y=0 и расположено не в крайней или угловой точке изображения. 
+            Не проверяет корректность координат возвращаемой проекции точки для формирования 3D точки</remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointDraw.CnvPoint_ToPoint2D(System.Drawing.Point)">
+            <summary>
+            Конвертирует точку формата System.Drawing.Point в BaseGeometryYVP.GeomObjects.Point2D
+            </summary>
+            <param name="Point_Source">Точка, заданная в формате System.Drawing.Point</param>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointDraw.CnvPointF_ToPoint2D(System.Drawing.PointF)">
+            <summary>
+            Конвертирует точку формата System.Drawing.PointF в BaseGeometryYVP.GeomObjects.Point2D
+            </summary>
+            <param name="PointF_Source">Точка, заданная в формате System.Drawing.PointF</param>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointDraw.TypeOf_ProectionByPoint(System.Drawing.Point,System.Drawing.Point)">
+            <summary>
+            Определяет тип проекции (квадрант системы координат Монжа) 3D точки, к которой принадлежит заданная (отрисованная) точка
+            </summary>
+            <param name="PointProection_Source">Заданная (отриосванная) точка проекции</param>
+            <param name="Frame2D_Centre">Заданный центр системы координат</param>
+            <returns>Возвращает проекцию 3D точки, соответвующую плоскости проекций системы координат Монжа, в которой находится заданная (отрисованная) точка</returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointDraw.DrawPointProection(BaseGeometryYVP.GeomObjects.PointOfPlan1_X0Y,System.Int32,System.Drawing.Point,System.Drawing.Graphics@)">
+            <summary>
+            Отрисовка заданной проекции 3D точки, расположенной на Горизонтальной плоскости проекций (Pi1) системы координат Монжа
+            </summary>
+            <param name="PointXoY_Sourse">Заданная проекция точки</param>
+            <param name="PointRadius">Заданный радиус точки, которая будет отрисована</param>
+            <param name="Frame2D_Centre">Точка, определяющая положение начала системы координат Монжа</param>
+            <param name="Graphics_Source">Поверхность для отрисовки</param>
+            <remarks>Положение центра точки корректируется в зависимости от центра системы координат Монжа и заданного радиуса точки</remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointDraw.DrawPointProection(BaseGeometryYVP.GeomObjects.PointOfPlan2_X0Z,System.Int32,System.Drawing.Point,System.Drawing.Graphics@)">
+            <summary>
+            Отрисовка заданной проекции 3D точки, расположенной на Фронтальной плоскости проекций (Pi2) системы координат Монжа
+            </summary>
+            <param name="PointXoY_Sourse">Заданная проекция точки</param>
+            <param name="PointRadius">Заданный радиус точки, которая будет отрисована</param>
+            <param name="Frame2D_Centre">Точка, определяющая положение начала системы координат Монжа</param>
+            <param name="Graphics_Source">Поверхность для отрисовки</param>
+            <remarks>Положение центра точки корректируется в зависимости от центра системы координат Монжа и заданного радиуса точки</remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointDraw.DrawPointProection(BaseGeometryYVP.GeomObjects.PointOfPlan3_Y0Z,System.Int32,System.Drawing.Point,System.Drawing.Graphics@)">
+            <summary>
+             Отрисовка заданной проекции 3D точки, расположенной на Профильной плоскости проекций (Pi3) системы координат Монжа
+            </summary>
+            <param name="PointXoY_Sourse">Заданная проекция точки</param>
+            <param name="PointRadius">Заданный радиус точки, которая будет отрисована</param>
+            <param name="Frame2D_Centre">Точка, определяющая положение начала системы координат Монжа</param>
+            <param name="Graphics_Source">Поверхность для отрисовки</param>
+            <remarks>Положение центра точки корректируется в зависимости от центра системы координат Монжа и заданного радиуса точки</remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointDraw.DrawLinkLine(BaseGeometryYVP.GeomObjects.PointOfPlan1_X0Y,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Drawing.Point,System.Drawing.Graphics@)">
+            <summary>
+            Отрисовка линий связи из проекции точки, расположенной на Горизонтальной плоскости проекций (Pi1) системы координат Монжа
+            </summary>
+            <param name="PointXoY_Sourse">Заданная проекция точки</param>
+            <param name="LinkPointToX">Метка включения вертикального участка линии связи, проходящего от заданной проекции точки до горизонтальной оси X горизонтальной плоскости проекций (Pi1)</param>
+            <param name="LinkPointToY">Метка включения горизонтального участка линии связи, проходящего от заданной проекции точки до вертикальной оси Y горизонтальной плоскости проекций (Pi1)</param>
+            <param name="LinkXToBorderPi2">Метка включения вертикального участка линии связи, проходящего от горизонтальной оси X до верхней границы фронтальной плоскости проекций (Pi2)</param>
+            <param name="LinkYToBorderPi3">Метка включения вертикального участка линии связи, проходящего от горизонтальной оси Y профильной плоскости проекций (Pi3) до верхней границы профильной плоскости проекций (Pi3)</param>
+            <param name="LinkCurveY1ToY3">Метка включения участка линии связи - дуги, проходящей от вертикальной оси Y горизонтальной плоскости проекций (Pi1) до горизонтальной оси Y профильной плоскости проекций (Pi3)</param>
+            <param name="Frame2D_Centre">Точка, определяющая положение начала системы координат Монжа</param>
+            <param name="Graphics_Source">Поверхность для отрисовки</param>
+            <remarks>Отрисовывает линии связи, исходящие от заданной проекции точки до границ области рисования</remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointDraw.DrawLinkLine(BaseGeometryYVP.GeomObjects.PointOfPlan2_X0Z,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Drawing.Point,System.Drawing.Graphics@)">
+            <summary>
+            Отрисовка линий связи из проекции точки, расположенной на Фронтальной плоскости проекций (Pi2) системы координат Монжа
+            </summary>
+            <param name="PointXoZ_Sourse">Заданная проекция точки</param>
+            <param name="LinkPointToX">Метка включения вертикального участка линии связи, проходящего от заданной проекции точки до горизонтальной оси X фронтальной плоскости проекций (Pi2)</param>
+            <param name="LinkPointToZ">Метка включения горизонтального участка линии связи, проходящего от заданной проекции точки до вертикальной оси Z фронтальной плоскости проекций (Pi2)</param>
+            <param name="LinkXToBorderPi1">Метка включения вертикального участка линии связи, проходящего от горизонтальной оси X до нижней границы горизонтальной плоскости проекций (Pi1)</param>
+            <param name="LinkZToBorderPi3">Метка включения горизонтального участка линии связи, проходящего от вертикальной оси Z до правой границы профильной плоскости проекций (Pi3)</param>
+            <param name="Frame2D_Centre">Точка, определяющая положение начала системы координат Монжа</param>
+            <param name="Graphics_Source">Поверхность для отрисовки</param>
+            <remarks>Отрисовывает линии связи, исходящие от заданной проекции точки до границ области рисования</remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointDraw.DrawLinkLine(BaseGeometryYVP.GeomObjects.PointOfPlan3_Y0Z,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Drawing.Point,System.Drawing.Graphics@)">
+            <summary>
+            Отрисовка линий связи из проекции точки, расположенной на Профильной плоскости проекции (Pi3) системы координат Монжа
+            </summary>
+            <param name="PointYoZ_Sourse">Заданная проекция точки</param>
+            <param name="LinkPointToY">Метка включения вертикального участка линии связи, проходящего от заданной проекции точки до оси горизонтальной Y профильной плоскости проекций (Pi3)</param>
+            <param name="LinkPointToZ">Метка включения горизонтального участка линии связи, проходящего от заданной проекции точки до вертикальной оси Z профильной плоскости проекций (Pi3)</param>
+            <param name="LinkYToBorderPi1">Метка включения горизонтального участка линии связи, проходящего от вертикальной оси Y горизонтальной плоскости проекций (Pi1) до левой границы горизонтальной плоскости проекций (Pi1)</param>
+            <param name="LinkZToBorderPi2">Метка включения горизонтального участка линии связи, проходящего от вертикальной оси Z фронтальной плоскости проекций (Pi2) до левой границы фронтальной плоскости проекций (Pi2)</param>
+            <param name="LinkCurveY3ToY1">Метка включения участка линии связи - дуги, проходящей от горизонтальной оси Y профильной плоскости проекций (Pi3) до вертикальной оси Y горизонтальной плоскости проекций (Pi1)</param>
+            <param name="Frame2D_Centre">Точка, определяющая положение начала системы координат Монжа</param>
+            <param name="Graphics_Source">Поверхность для отрисовки</param>
+            <remarks>При нулевом значении координаты Y заданной проекции точки линии связи не отрисовываются</remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointDraw.DrawLinkLine(BaseGeometryYVP.GeomObjects.PointOfPlan1_X0Y,BaseGeometryYVP.GeomObjects.PointOfPlan2_X0Z,BaseGeometryYVP.GeomObjects.PointOfPlan3_Y0Z,System.Drawing.Point,System.Drawing.Graphics@)">
+            <summary>
+            Отрисовка линий связи из проекций точек, расположенных на Горизонтальной, Фронтальной, Профильной плоскостей проекций (Pi1, Pi2, Pi3) системы координат Монжа
+            </summary>
+            <param name="PointXoY_Sourse">Заданная проекция точки на Горизонтальной плоскости проекций (Pi1)</param>
+            <param name="PointXoZ_Sourse">Заданная проекция точки на Фронтальной плоскости проекций (Pi2)</param>
+            <param name="PointYoZ_Sourse">Заданная проекция точки на Профильной плоскости проекций (Pi3)</param>
+            <param name="Frame2D_Centre">Точка, определяющая положение начала системы координат Монжа</param>
+            <param name="Graphics_Source">Инструмент прорисовки линии</param>
+            <remarks>Контролирует значение "Nothing" заданных проекций точек. Контролирует нулевые значения координат заданных проекций точек.
+             Исходя из результатов контроля осуществляет различную отрисовку линий связи.</remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointDraw.DrawLinkLine(BaseGeometryYVP.GeomObjects.Point3D,System.Drawing.Point,System.Drawing.Graphics@)">
+            <summary>
+            Отрисовка линий связи, исходящих из трех проекций (Горизонтальной, Фронтальной и Профильной) заданной 3D точки
+            </summary>
+            <param name="Point3D_Sourse">Заданная 3D точка</param>
+            <param name="Frame2D_Centre">Точка, определяющая положение начала системы координат Монжа</param>
+            <param name="Graphics_Source">Инструмент прорисовки линии</param>
+            <remarks>Контролирует значение "Nothing" заданных проекций точек. Контролирует нулевые значения координат заданных проекций точек.
+             Исходя из результатов контроля осуществляет различную отрисовку линий связи.</remarks>
+        </member>
+        <member name="P:BaseGeometryYVP.GeomObjects.PointDraw.Point3DAxonometry_PositionByPicture">
+            <summary>
+            Получает или задает координаты проекции 3D точки на плоскость аксонометрической системы координат
+            </summary>
+            <value></value>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="P:BaseGeometryYVP.GeomObjects.PointDraw.PointPlan1X0Y_PositionByPicture">
+            <summary>
+            Получает или задает координаты точки рисования для горизонтальной проекции 3D точки 
+            </summary>
+            <value></value>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="P:BaseGeometryYVP.GeomObjects.PointDraw.PointPlan2X0Z_PositionByPicture">
+            <summary>
+            Получает или задает координаты точки рисования для фронтальной проекции 3D точки 
+            </summary>
+            <value></value>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="P:BaseGeometryYVP.GeomObjects.PointDraw.PointPlan3Y0Z_PositionByPicture">
+            <summary>
+            Получает или задает координаты точки рисования для профильной проекции 3D точки 
+            </summary>
+            <value></value>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="P:BaseGeometryYVP.GeomObjects.PointDraw.Point3D_Axonometry_PositionByFrame">
+            <summary>
+            Получает или задает скорректированные координаты проекции 3D точки на плоскость аксонометрической системы координат
+            </summary>
+            <value></value>
+            <returns></returns>
+            <remarks>Возвращает или задает координаты точек с учетом корректировок их положения в зависимости от заданного центра картинки, толщины пера и др.</remarks>
+        </member>
+        <member name="P:BaseGeometryYVP.GeomObjects.PointDraw.PointPlan1X0Y_PositionByFrame">
+            <summary>
+            Получает или задает скорректированные координаты точки рисования для горизонтальной проекции 3D точки 
+            </summary>
+            <value></value>
+            <returns></returns>
+            <remarks>Возвращает или задает координаты точек с учетом корректировок их положения в зависимости от заданного центра картинки, толщины пера и др.</remarks>
+        </member>
+        <member name="P:BaseGeometryYVP.GeomObjects.PointDraw.PointPlan2X0Z_PositionByFrame">
+            <summary>
+            Получает или задает скорректированные координаты точки рисования для фронтальной проекции 3D точки 
+            </summary>
+            <value></value>
+            <returns></returns>
+            <remarks>Возвращает или задает координаты точек с учетом корректировок их положения в зависимости от заданного центра картинки, толщины пера и др.</remarks>
+        </member>
+        <member name="P:BaseGeometryYVP.GeomObjects.PointDraw.PointPlan3Y0Z_PositionByFrame">
+            <summary>
+            Получает или задает скорректированные координаты точки рисования для профильной проекции 3D точки 
+            </summary>
+            <value></value>
+            <returns></returns>
+            <remarks>Возвращает или задает координаты точек с учетом корректировок их положения в зависимости от заданного центра картинки, толщины пера и др.</remarks>
+        </member>
+        <member name="P:BaseGeometryYVP.GeomObjects.PointDraw.Pen_Point3D_Axonometry">
+            <summary>
+            Получает или задает параметры инструмента рисования аксонометрической проекции 3D точки 
+            </summary>
+            <value></value>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="P:BaseGeometryYVP.GeomObjects.PointDraw.Pen_Point1X0Y">
+            <summary>
+            Получает или задает параметры инструмента рисования горизонтальной проекции 3D точки 
+            </summary>
+            <value></value>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="P:BaseGeometryYVP.GeomObjects.PointDraw.Pen_Point2X0Z">
+            <summary>
+            Получает или задает параметры инструмента рисования фронтальной проекции 3D точки 
+            </summary>
+            <value></value>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="P:BaseGeometryYVP.GeomObjects.PointDraw.Pen_Point3Y0Z">
+            <summary>
+            Получает или задает параметры инструмента рисования профильной проекции 3D точки 
+            </summary>
+            <value></value>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="P:BaseGeometryYVP.GeomObjects.PointDraw.FlagDraw_PointPlan1X0Y">
+            <summary>
+            Получает или задает флаг необходимости отрисовки горизонтальной проекции
+            </summary>
+            <value></value>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="P:BaseGeometryYVP.GeomObjects.PointDraw.FlagDraw_PointPlan2X0Z">
+            <summary>
+            Получает или задает флаг необходимости отрисовки фронтальной проекции
+            </summary>
+            <value></value>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="P:BaseGeometryYVP.GeomObjects.PointDraw.FlagDraw_PointPlan3Y0Z">
+            <summary>
+            Получает или задает флаг необходимости отрисовки профильной проекции
+            </summary>
+            <value></value>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="P:BaseGeometryYVP.GeomObjects.PointDraw.Pen_LinkLineXoY_toX">
+            <summary>
+            Получает или задает параметры инструмента рисования вертикальной линии связи горизонтальной проекции 3D точки (направленной к оси X)
+            </summary>
+            <value></value>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="P:BaseGeometryYVP.GeomObjects.PointDraw.Pen_LinkLineXoY_toY">
+            <summary>
+            Получает или задает параметры инструмента рисования горизонтальной линии связи, дуги и вертикальной линии связи (для P3) горизонтальной проекции 3D точки (направленных к оси Y)
+            </summary>
+            <value></value>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="P:BaseGeometryYVP.GeomObjects.PointDraw.Pen_LinkLineXoZ_toX">
+            <summary>
+            Получает или задает параметры инструмента рисования вертикальной линий связи фронтальной проекции 3D точки (направленной к оси X)
+            </summary>
+            <value></value>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="P:BaseGeometryYVP.GeomObjects.PointDraw.Pen_LinkLineXoZ_toZ">
+            <summary>
+            Получает или задает параметры инструмента рисования горизонтальной линий связи фронтальной проекции 3D точки (направленной к оси Z)
+            </summary>
+            <value></value>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="P:BaseGeometryYVP.GeomObjects.PointDraw.Pen_LinkLineYoZ_toY">
+            <summary>
+            Получает или задает параметры инструмента рисования вертикальной линий связи профильной проекции 3D точки (направленной к оси Y)
+            </summary>
+            <value></value>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="P:BaseGeometryYVP.GeomObjects.PointDraw.Pen_LinkLineYoZ_toZ">
+            <summary>
+            Получает или задает параметры инструмента рисования горизонтальной линий связи профильной проекции 3D точки (направленной к оси Z)
+            </summary>
+            <value></value>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="T:BaseGeometryYVP.GeomObjects.PointOfPlan1_X0Y">
+            <summary>Класс для расчета параметров проекции 3D точки на X0Y плоскость проекций</summary>
+            <remarks>Copyright © Polozkov V. Yury, 2015</remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointOfPlan1_X0Y.#ctor">
+            <summary>Инициализация нового экземпляра двумерной проекции точки</summary>
+            <remarks>Исходные координаты точки: X=0; Y=0</remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointOfPlan1_X0Y.#ctor(System.Double,System.Double)">
+            <summary>Инициализирует новый экземпляр двумерной проекции точки с указанными координатами</summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointOfPlan1_X0Y.#ctor(BaseGeometryYVP.GeomObjects.PointOfPlan1_X0Y)">
+            <summary>Инициализирует новый экземпляр двумерной проекции точки</summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointOfPlan1_X0Y.PointMove(System.Double,System.Double)">
+            <summary>Передвигает ранее заданную двумерную проекцию точку
+            (изменяет коодинаты на указанные величины по осям в 2D)</summary>
+            <remarks>PointOfPlan1_X0Y.X += dx; PointOfPlan1_X0Y.Y += dy</remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointOfPlan1_X0Y.PointByText(System.String,System.String,System.Enum)">
+            <summary> Задает проекцию 3D точки в плоскости X0Z, двумя координатами, представленными в текстовом формате </summary>
+            <remarks> При корректном задании значений параметров проекций возвращает значение перечислителя: 0 = "CoordinateValue.None"  </remarks>
+            <param name="X_Text"> Значение первой координаты в формате "String"</param>
+            <param name="Y_Text"> Значение второй координаты в формате "String"</param>
+            <param name="ProectionError"> Значение перечислителя, указывающего индексы координат, для которых отсутствуют значения параметров</param>
+            <returns> BaseGeometryYVP.GeomObjects.PointOfPlan1_X0Y; в случае отсутсвия значений параметров возвращает возвращает "Nothing" и номер перечислителя "CoordinateValue", указывающего индексы координат, для которых не заданы значения, т.е. имеющие строковое значение "Nothing"</returns>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointOfPlan1_X0Y.CnvPoint2D(BaseGeometryYVP.GeomObjects.PointOfPlan1_X0Y)">
+            <summary>Конвертирует заданную проекцию точки на плоскость X0Y в GeomObjects.Point2D</summary>
+            <param name="PointProjection">Заданная прекция точки</param>
+            <remarks>PointOfPlan1_X0Y.X = Point2D.X; PointOfPlan1_X0Y.Z = Point2D.Y</remarks>
+        </member>
+        <member name="P:BaseGeometryYVP.GeomObjects.PointOfPlan1_X0Y.X">
+            <summary>Получает или задает координату X двумерной проекции точки</summary>
+            <remarks></remarks>
+        </member>
+        <member name="P:BaseGeometryYVP.GeomObjects.PointOfPlan1_X0Y.Y">
+            <summary>Получает или задает координату Y двумерной проекции точки</summary>
+            <remarks></remarks>
+        </member>
+        <member name="P:BaseGeometryYVP.GeomObjects.PointOfPlan1_X0Y.SolveError">
+            <summary>Получает или задает точность расчета двумерных проекций точек</summary>
+            <remarks>Значение по умолчанию 0,001</remarks>
+        </member>
+        <member name="P:BaseGeometryYVP.GeomObjects.PointOfPlan1_X0Y.Point3D_Draw">
+            <summary>
+            Получает или задает инструменты для отрисовки 3D точки
+            </summary>
+        </member>
+        <member name="T:BaseGeometryYVP.GeomObjects.PointOfPlan2_X0Z">
+            <summary>Класс для расчета параметров проекции 3D точки на X0Z плоскость проекций</summary>
+            <remarks>Copyright © Polozkov V. Yury, 2013</remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointOfPlan2_X0Z.#ctor">
+            <summary>Инициализация нового экземпляра двумерной проекции точки</summary>
+            <remarks>Исходные координаты точки: X=0; Z=0</remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointOfPlan2_X0Z.#ctor(System.Double,System.Double)">
+            <summary>Инициализирует новый экземпляр двумерной проекции точки с указанными координатами</summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointOfPlan2_X0Z.#ctor(BaseGeometryYVP.GeomObjects.PointOfPlan2_X0Z)">
+            <summary>Инициализирует новый экземпляр двумерной проекции точки</summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointOfPlan2_X0Z.PointMove(System.Double,System.Double)">
+            <summary>Передвигает ранее заданную двумерную проекцию точку
+            (изменяет коодинаты на указанные величины по осям в 2D)</summary>
+            <remarks>PointOfPlan2_X0Z.X += dx; PointOfPlan2_X0Z.Z += dz</remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointOfPlan2_X0Z.PointByText(System.String,System.String,System.Enum@)">
+            <summary> Задает проекцию 3D точки в плоскости X0Z, двумя координатами, представленными в текстовом формате </summary>
+            <remarks> При корректном задании значений параметров проекций возвращает значение перечислителя: 0 = "CoordinateValue.None"  </remarks>
+            <param name="X_Text"> Значение первой координаты в формате "String"</param>
+            <param name="Z_Text"> Значение второй координаты в формате "String"</param>
+            <param name="ProectionError"> Значение перечислителя, указывающего индексы координат, для которых отсутствуют значения параметров</param>
+            <returns> BaseGeometryYVP.GeomObjects.PointOfPlan2_X0Z; в случае отсутсвия значений параметров возвращает возвращает "Nothing" и номер перечислителя "CoordinateValue", указывающего индексы координат, для которых не заданы значения, т.е. имеющие строковое значение "Nothing"</returns>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointOfPlan2_X0Z.CnvPoint2D(BaseGeometryYVP.GeomObjects.PointOfPlan2_X0Z)">
+            <summary>Конвертирует заданную проекцию точки на плоскость X0Z в GeomObjects.Point2D</summary>
+            <remarks>PointOfPlan2_X0Z.X = Point2D.X; PointOfPlan2_X0Z.Z = Point2D.Y</remarks>
+        </member>
+        <member name="P:BaseGeometryYVP.GeomObjects.PointOfPlan2_X0Z.X">
+            <summary>Получает или задает координату X двумерной проекции точки</summary>
+            <remarks></remarks>
+        </member>
+        <member name="P:BaseGeometryYVP.GeomObjects.PointOfPlan2_X0Z.Z">
+            <summary>Получает или задает координату Z двумерной проекции точки</summary>
+            <remarks></remarks>
+        </member>
+        <member name="P:BaseGeometryYVP.GeomObjects.PointOfPlan2_X0Z.SolveError">
+            <summary>Получает или задает точность расчета двумерных проекций точек</summary>
+            <remarks>Значение по умолчанию 0,001</remarks>
+            
+        </member>
+        <member name="P:BaseGeometryYVP.GeomObjects.PointOfPlan2_X0Z.Point3D_Draw">
+            <summary>
+            Получает или задает инструменты для отрисовки 3D точки
+            </summary>
+        </member>
+        <member name="T:BaseGeometryYVP.GeomObjects.PointOfPlan3_Y0Z">
+            <summary>Класс для расчета параметров проекции 3D точки на Y0Z плоскость проекций</summary>
+            <remarks>Copyright © Polozkov V. Yury, 2013</remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointOfPlan3_Y0Z.#ctor">
+            <summary>Инициализация нового экземпляра двумерной проекции точки</summary>
+            <remarks>Исходные координаты точки: Y=0; Z=0</remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointOfPlan3_Y0Z.#ctor(System.Double,System.Double)">
+            <summary>Инициализирует новый экземпляр двумерной проекции точки с указанными координатами</summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointOfPlan3_Y0Z.#ctor(BaseGeometryYVP.GeomObjects.PointOfPlan3_Y0Z)">
+            <summary>Инициализирует новый экземпляр двумерной проекции точки</summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointOfPlan3_Y0Z.PointMove(System.Double,System.Double)">
+            <summary>Передвигает ранее заданную двумерную проекцию точку
+            (изменяет коодинаты на указанные величины по осям в 2D)
+            </summary>
+            <remarks>PointOfPlan3_Y0Z.Y += dy; PointOfPlan3_Y0Z.Z += dz</remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointOfPlan3_Y0Z.PointByText(System.String,System.String,System.Enum)">
+            <summary> Задает проекцию 3D точки в плоскости Y0Z, двумя координатами, представленными в текстовом формате </summary>
+            <remarks> При корректном задании значений параметров проекций возвращает значение перечислителя: 0 = "CoordinateValue.None"  </remarks>
+            <param name="Y_Text"> Значение первой координаты в формате "String"</param>
+            <param name="Z_Text"> Значение второй координаты в формате "String"</param>
+            <param name="ProectionError"> Значение перечислителя, указывающего индексы координат, для которых отсутствуют значения параметров</param>
+            <returns> BaseGeometryYVP.GeomObjects.PointOfPlan2_Y0Z; в случае отсутсвия значений параметров возвращает возвращает "Nothing" и номер перечислителя "CoordinateValue", указывающего индексы координат, для которых не заданы значения, т.е. имеющие строковое значение "Nothing"</returns>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointOfPlan3_Y0Z.CnvPoint2D(BaseGeometryYVP.GeomObjects.PointOfPlan3_Y0Z)">
+            <summary>Конвертирует заданную проекцию точки на плоскость X0Z в GeomObjects.Point2D</summary>
+            <remarks>PointOfPlan2_X0Z.X = Point2D.X; PointOfPlan2_X0Z.Z = Point2D.Y</remarks>
+        </member>
+        <member name="P:BaseGeometryYVP.GeomObjects.PointOfPlan3_Y0Z.Y">
+            <summary>Получает или задает координату Y двумерной проекции точки</summary>
+            <remarks></remarks>
+        </member>
+        <member name="P:BaseGeometryYVP.GeomObjects.PointOfPlan3_Y0Z.Z">
+            <summary>Получает или задает координату Z двумерной проекции точки</summary>
+            <remarks></remarks>
+        </member>
+        <member name="P:BaseGeometryYVP.GeomObjects.PointOfPlan3_Y0Z.Point3D_Draw">
+            <summary>
+            Получает или задает инструменты для отрисовки 3D точки
+            </summary>
+        </member>
+        <member name="P:BaseGeometryYVP.GeomObjects.PointOfPlan3_Y0Z.SolveError">
+            <summary>Получает или задает точность расчета двумерных проекций точек</summary>
+            <remarks>Значение по умолчанию 0,001</remarks>
+            <summary>Получает или задает точность расчета двумерных проекций точек</summary>
+            <remarks>Значение по умолчанию 0,001</remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointsPositionControl.Point1_XisPoint2_X(BaseGeometryYVP.GeomObjects.Point2D,BaseGeometryYVP.GeomObjects.Point2D)">
+            <summary>Возвращает значение "TRUE", если координаты X заданных 2D точек совпадают</summary>
+            <remarks>Ось X направлена вправо.</remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointsPositionControl.Point1_XisPoint2_X(BaseGeometryYVP.GeomObjects.Point2D,BaseGeometryYVP.GeomObjects.Point2D,System.Double)">
+            <summary>Возвращает значение "TRUE", если координаты X заданных 2D точек совпадают</summary>
+            <remarks>Параметр "SolveError" устанавливает погрешность расчета.
+            Ось X направлена вправо.</remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointsPositionControl.Point1_YisPoint2_Y(BaseGeometryYVP.GeomObjects.Point2D,BaseGeometryYVP.GeomObjects.Point2D)">
+            <summary>Возвращает значение "TRUE", если координаты Y заданных 2D точек совпадают</summary>
+            <remarks>Ось Y направлена вверх.</remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointsPositionControl.Point1_YisPoint2_Y(BaseGeometryYVP.GeomObjects.Point2D,BaseGeometryYVP.GeomObjects.Point2D,System.Double)">
+            <summary>Возвращает значение "TRUE", если координаты Y заданных 2D точек совпадают</summary>
+            <remarks>Параметр "SolveError" устанавливает погрешность расчета.
+            Ось Y направлена вверх.</remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointsPositionControl.PointsIsPoints(BaseGeometryYVP.GeomObjects.Point2D,BaseGeometryYVP.GeomObjects.Point2D)">
+            <summary>Возвращает значение "TRUE", если совпадают заданные 2D точки</summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointsPositionControl.PointsIsPoints(BaseGeometryYVP.GeomObjects.Point2D,BaseGeometryYVP.GeomObjects.Point2D,System.Double)">
+            <summary>Возвращает значение "TRUE", если совпадают заданные 2D точки</summary>
+            <remarks>Параметр "SolveError" устанавливает погрешность расчета</remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointsPositionControl.PointsIsPoints(BaseGeometryYVP.GeomObjects.Point2D[])">
+            <summary>Возвращает значение "TRUE", если все 2D точки, заданные в массиве, совпадают</summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointsPositionControl.PointsIsPoints(BaseGeometryYVP.GeomObjects.Point2D[],System.Double)">
+            <summary>Возвращает значение "TRUE", если все 2D точки заданного массива совпадают</summary>
+            <remarks>Параметр "SolveError" устанавливает погрешность расчета</remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointsPositionControl.Point1_XisPoint2_X(BaseGeometryYVP.GeomObjects.Point3D,BaseGeometryYVP.GeomObjects.Point3D)">
+            <summary>Возвращает значение "TRUE", если координаты X заданных 3D точек совпадают</summary>
+            <remarks>Ось X направлена вправо.</remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointsPositionControl.Point1_XisPoint2_X(BaseGeometryYVP.GeomObjects.Point3D,BaseGeometryYVP.GeomObjects.Point3D,System.Double)">
+            <summary>Возвращает значение "TRUE", если координаты X заданных 3D точек совпадают</summary>
+            <remarks>Параметр "SolveError" устанавливает погрешность расчета.
+            Ось X направлена вправо.</remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointsPositionControl.Point1_YisPoint2_Y(BaseGeometryYVP.GeomObjects.Point3D,BaseGeometryYVP.GeomObjects.Point3D)">
+            <summary>Возвращает значение "TRUE", если координаты Y заданных 3D точек совпадают</summary>
+            <remarks>Ось Y направлена вверх.</remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointsPositionControl.Point1_YisPoint2_Y(BaseGeometryYVP.GeomObjects.Point3D,BaseGeometryYVP.GeomObjects.Point3D,System.Double)">
+            <summary>Возвращает значение "TRUE", если координаты Y заданных 3D точек совпадают</summary>
+            <remarks>Параметр "SolveError" устанавливает погрешность расчета.
+            Ось Y направлена вверх.</remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointsPositionControl.Point1_ZisPoint2_Z(BaseGeometryYVP.GeomObjects.Point3D,BaseGeometryYVP.GeomObjects.Point3D)">
+            <summary>Возвращает значение "TRUE", если координаты Z заданных 3D точек совпадают</summary>
+            <remarks>Ось Z направлена наблюдателю.</remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointsPositionControl.Point1_ZisPoint2_Z(BaseGeometryYVP.GeomObjects.Point3D,BaseGeometryYVP.GeomObjects.Point3D,System.Double)">
+            <summary>Возвращает значение "TRUE", если координаты Z заданных 3D точек совпадают</summary>
+            <remarks>Параметр "SolveError" устанавливает погрешность расчета.
+            Ось Z направлена к наблюдателю.</remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointsPositionControl.PointsIsPoints(BaseGeometryYVP.GeomObjects.Point3D,BaseGeometryYVP.GeomObjects.Point3D)">
+            <summary>Возвращает значение "TRUE", если совпадают заданные 3D точки</summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointsPositionControl.PointsIsPoints(BaseGeometryYVP.GeomObjects.Point3D,BaseGeometryYVP.GeomObjects.Point3D,System.Double)">
+            <summary>Возвращает значение "TRUE", если совпадают заданные 3D точки</summary>
+            <remarks>Параметр "SolveError" устанавливает погрешность расчета</remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointsPositionControl.PointsIsPoints(BaseGeometryYVP.GeomObjects.Point3D[])">
+            <summary>Возвращает значение "TRUE", если все 3D точки, заданные в массиве совпадают</summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointsPositionControl.PointsIsPoints(BaseGeometryYVP.GeomObjects.Point3D[],System.Double)">
+            <summary>Возвращает значение "TRUE", если все 3D точки, заданные в массиве совпадают</summary>
+            <remarks>Параметр "SolveError" устанавливает погрешность расчета</remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointsPositionControl.PointsIsPoints(BaseGeometryYVP.GeomObjects.PointOfPlan1_X0Y,BaseGeometryYVP.GeomObjects.PointOfPlan1_X0Y)">
+            <summary>Сравнивает положение двух заданных проекций точек на плоскость X0Y</summary>
+            <param name="PointProjection_1">Первая заданная проекция точки на плоскость X0Y</param>
+            <param name="PointProjection_2">Вторая заданная проекция точки на плоскость X0Y</param>
+            <returns>Возвращает "True" при совпадении положения двух заданных проекций точек. В противном случае возвращает "False"</returns>
+            <remarks>Точность расчетов не регламентируется</remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointsPositionControl.PointsIsPoints(BaseGeometryYVP.GeomObjects.PointOfPlan2_X0Z,BaseGeometryYVP.GeomObjects.PointOfPlan2_X0Z)">
+            <summary>Сравнивает положение двух заданных проекций точек на плоскость X0Z</summary>
+            <param name="PointProjection_1">Первая заданная проекция точки на плоскость X0Z</param>
+            <param name="PointProjection_2">Вторая заданная проекция точки на плоскость X0Z</param>
+            <returns>Возвращает "True" при совпадении положения двух заданных проекций точек. В противном случае возвращает "False"</returns>
+            <remarks>Точность расчетов не регламентируется</remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointsPositionControl.PointsIsPoints(BaseGeometryYVP.GeomObjects.PointOfPlan3_Y0Z,BaseGeometryYVP.GeomObjects.PointOfPlan3_Y0Z)">
+            <summary>Сравнивает положение двух заданных проекций точек на плоскость Y0Z</summary>
+            <param name="PointProjection_1">Первая заданная проекция точки на плоскость Y0Z</param>
+            <param name="PointProjection_2">Вторая заданная проекция точки на плоскость Y0Z</param>
+            <returns>Возвращает "True" при совпадении положения двух заданных проекций точек. В противном случае возвращает "False"</returns>
+            <remarks>Точность расчетов не регламентируется</remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointsPositionControl.Point2AtLeftPoint1(BaseGeometryYVP.GeomObjects.Point2D,BaseGeometryYVP.GeomObjects.Point2D)">
+            <summary>Возвращает значение "TRUE", если 2D точка 2 левее 2D точки 1</summary>
+            <remarks>Ось X направлена вправо.</remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointsPositionControl.Point2AtLeftPoint1(BaseGeometryYVP.GeomObjects.Point2D,BaseGeometryYVP.GeomObjects.Point2D,System.Double)">
+            <summary>Возвращает значение "TRUE", если 2D точка 2 левее 2D точки 1</summary>
+            <remarks>Параметр "SolveError" устанавливает погрешность расчета.
+            Ось X направлена вправо.</remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointsPositionControl.Point2AtRightPoint1(BaseGeometryYVP.GeomObjects.Point2D,BaseGeometryYVP.GeomObjects.Point2D)">
+            <summary>Возвращает значение "TRUE", если 2D точка 2 правее 2D точки 1</summary>
+            <remarks>Ось X направлена вправо.</remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointsPositionControl.Point2AtRightPoint1(BaseGeometryYVP.GeomObjects.Point2D,BaseGeometryYVP.GeomObjects.Point2D,System.Double)">
+            <summary>Возвращает значение "TRUE", если 2D точка 2 правее 2D точки 1</summary>
+            <remarks>Параметр "SolveError" устанавливает погрешность расчета.
+            Ось X направлена вправо.</remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointsPositionControl.Point2ОverPoint1(BaseGeometryYVP.GeomObjects.Point2D,BaseGeometryYVP.GeomObjects.Point2D)">
+            <summary>Возвращает значение "TRUE", если 2D точка 2 выше 2D точки 1</summary>
+            <remarks>Ось Y направлена вверх.</remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointsPositionControl.Point2ОverPoint1(BaseGeometryYVP.GeomObjects.Point2D,BaseGeometryYVP.GeomObjects.Point2D,System.Double)">
+            <summary>Возвращает значение "TRUE", если 2D точка 2 выше 2D точки 1</summary>
+            <remarks>Параметр "SolveError" устанавливает погрешность расчета.
+            Ось Y направлена вверх.</remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointsPositionControl.Point2UnderPoint1(BaseGeometryYVP.GeomObjects.Point2D,BaseGeometryYVP.GeomObjects.Point2D)">
+            <summary>Возвращает значение "TRUE", если 2D точка 2 ниже 2D точки 1</summary>
+            <remarks>Ось Y направлена вверх.</remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointsPositionControl.Point2UnderPoint1(BaseGeometryYVP.GeomObjects.Point2D,BaseGeometryYVP.GeomObjects.Point2D,System.Double)">
+            <summary>Возвращает значение "TRUE", если 2D точка 2 ниже 2D точки 1</summary>
+            <remarks>Параметр "SolveError" устанавливает погрешность расчета.
+            Ось Y направлена вверх.</remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointsPositionControl.Point2AtLeftPoint1(BaseGeometryYVP.GeomObjects.Point3D,BaseGeometryYVP.GeomObjects.Point3D)">
+            <summary>Возвращает значение "TRUE", если 3D точка 2 левее 3D точки 1</summary>
+            <remarks>Ось X направлена вправо.</remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointsPositionControl.Point2AtLeftPoint1(BaseGeometryYVP.GeomObjects.Point3D,BaseGeometryYVP.GeomObjects.Point3D,System.Double)">
+            <summary>Возвращает значение "TRUE", если 3D точка 2 левее 3D точки 1</summary>
+            <remarks>Параметр "SolveError" устанавливает погрешность расчета.
+            Ось X направлена вправо.</remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointsPositionControl.Point2AtRightPoint1(BaseGeometryYVP.GeomObjects.Point3D,BaseGeometryYVP.GeomObjects.Point3D)">
+            <summary>Возвращает значение "TRUE", если 3D точка 2 правее 3D точки 1</summary>
+            <remarks>Ось X направлена вправо.</remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointsPositionControl.Point2AtRightPoint1(BaseGeometryYVP.GeomObjects.Point3D,BaseGeometryYVP.GeomObjects.Point3D,System.Double)">
+            <summary>Возвращает значение "TRUE", если 3D точка 2 правее 3D точки 1</summary>
+            <remarks>Параметр "SolveError" устанавливает погрешность расчета.
+            Ось X направлена вправо.</remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointsPositionControl.Point2ОverPoint1(BaseGeometryYVP.GeomObjects.Point3D,BaseGeometryYVP.GeomObjects.Point3D)">
+            <summary>Возвращает значение "TRUE", если 3D точка 2 выше 3D точки 1</summary>
+            <remarks>Ось Z направлена вверх.</remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointsPositionControl.Point2ОverPoint1(BaseGeometryYVP.GeomObjects.Point3D,BaseGeometryYVP.GeomObjects.Point3D,System.Double)">
+            <summary>Возвращает значение "TRUE", если 3D точка 2 выше 3D точки 1</summary>
+            <remarks>Параметр "SolveError" устанавливает погрешность расчета.
+            Ось Z направлена вверх.</remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointsPositionControl.Point2UnderPoint1(BaseGeometryYVP.GeomObjects.Point3D,BaseGeometryYVP.GeomObjects.Point3D)">
+            <summary>Возвращает значение "TRUE", если 3D точка 2 ниже 3D точки 1</summary>
+            <remarks>Ось Z направлена вверх.</remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointsPositionControl.Point2UnderPoint1(BaseGeometryYVP.GeomObjects.Point3D,BaseGeometryYVP.GeomObjects.Point3D,System.Double)">
+            <summary>Возвращает значение "TRUE", если 3D точка 2 ниже 3D точки 1</summary>
+            <remarks>Параметр "SolveError" устанавливает погрешность расчета.
+            Ось Z направлена вверх.</remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointsPositionControl.Point2BeforePoint1(BaseGeometryYVP.GeomObjects.Point3D,BaseGeometryYVP.GeomObjects.Point3D)">
+            <summary>Возвращает значение "TRUE", если 3D точка 2 перед 3D точкой 1</summary>
+            <remarks>Ось Y направлена к наблюдателю.</remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointsPositionControl.Point2BeforePoint1(BaseGeometryYVP.GeomObjects.Point3D,BaseGeometryYVP.GeomObjects.Point3D,System.Double)">
+            <summary>Возвращает значение "TRUE", если 3D точка 2 перед 3D точкой 1</summary>
+            <remarks>Ось Y направлена к наблюдателю.</remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointsPositionControl.Point2AfterPoint1(BaseGeometryYVP.GeomObjects.Point3D,BaseGeometryYVP.GeomObjects.Point3D)">
+            <summary>Возвращает значение "TRUE", если 3D точка 2 за 3D точкой 1</summary>
+            <remarks>Ось Y направлена к наблюдателю.</remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointsPositionControl.Point2AfterPoint1(BaseGeometryYVP.GeomObjects.Point3D,BaseGeometryYVP.GeomObjects.Point3D,System.Double)">
+            <summary>Возвращает значение "TRUE", если 3D точка 2 за 3D точкой 1</summary>
+            <remarks>Ось Y направлена к наблюдателю.</remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointsPositionControl.Point2AtLeftPoint1Only(BaseGeometryYVP.GeomObjects.Point2D,BaseGeometryYVP.GeomObjects.Point2D)">
+            <summary>Возвращает значение "TRUE", если 2D точка 2 строго левее 2D точки 1</summary>
+            <remarks>Координаты Y обеих точек равны.
+            Ось X направлена вправо.</remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointsPositionControl.Point2AtLeftPoint1Only(BaseGeometryYVP.GeomObjects.Point2D,BaseGeometryYVP.GeomObjects.Point2D,System.Double)">
+            <summary>Возвращает значение "TRUE", если 2D точка 2 строго левее 2D точки 1</summary>
+            <remarks>Координаты Y обеих точек равны.
+            Ось X направлена вправо. Параметр "SolveError" устанавливает погрешность расчета.</remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointsPositionControl.Point2AtRightPoint1Only(BaseGeometryYVP.GeomObjects.Point2D,BaseGeometryYVP.GeomObjects.Point2D)">
+            <summary>Возвращает значение "TRUE", если 2D точка 2 строго правее 2D точки 1</summary>
+            <remarks>Координаты Y обеих точек равны.
+            Ось X направлена вправо.</remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointsPositionControl.Point2AtRightPoint1Only(BaseGeometryYVP.GeomObjects.Point2D,BaseGeometryYVP.GeomObjects.Point2D,System.Double)">
+            <summary>Возвращает значение "TRUE", если 2D точка 2 строго правее 2D точки 1</summary>
+            <remarks>Координаты Y обеих точек равны.
+            Ось X направлена вправо. Параметр "SolveError" устанавливает погрешность расчета.</remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointsPositionControl.Point2ОverPoint1Only(BaseGeometryYVP.GeomObjects.Point2D,BaseGeometryYVP.GeomObjects.Point2D)">
+            <summary>Возвращает значение "TRUE", если 2D точка 2 строго выше 2D точки 1</summary>
+            <remarks>Ось Y направлена вверх.</remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointsPositionControl.Point2ОverPoint1Only(BaseGeometryYVP.GeomObjects.Point2D,BaseGeometryYVP.GeomObjects.Point2D,System.Double)">
+            <summary>Возвращает значение "TRUE", если 2D точка 2 строго выше 2D точки 1</summary>
+            <remarks>Ось Y направлена вверх.</remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointsPositionControl.Point2UnderPoint1Only(BaseGeometryYVP.GeomObjects.Point2D,BaseGeometryYVP.GeomObjects.Point2D)">
+            <summary>Возвращает значение "TRUE", если 2D точка 2 строго ниже 2D точки 1</summary>
+            <remarks>Ось Y направлена вверх.</remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointsPositionControl.Point2UnderPoint1Only(BaseGeometryYVP.GeomObjects.Point2D,BaseGeometryYVP.GeomObjects.Point2D,System.Double)">
+            <summary>Возвращает значение "TRUE", если 2D точка 2 строго ниже 2D точки 1</summary>
+            <remarks>Ось Y направлена вверх.</remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointsPositionControl.Point2AtLeftPoint1Only(BaseGeometryYVP.GeomObjects.Point3D,BaseGeometryYVP.GeomObjects.Point3D)">
+            <summary>Возвращает значение "TRUE", если 3D точка 2 строго левее 3D точки 1</summary>
+            <remarks>Координаты Y и Z обеих точек равны.
+            Ось X направлена влево.</remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointsPositionControl.Point2AtLeftPoint1Only(BaseGeometryYVP.GeomObjects.Point3D,BaseGeometryYVP.GeomObjects.Point3D,System.Double)">
+            <summary>Возвращает значение "TRUE", если 3D точка 2 строго левее 3D точки 1</summary>
+            <remarks>Координаты Y и Z обеих точек равны.
+            Ось X направлена влево. Параметр "SolveError" устанавливает погрешность расчета.</remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointsPositionControl.Point2AtRightPoint1Only(BaseGeometryYVP.GeomObjects.Point3D,BaseGeometryYVP.GeomObjects.Point3D)">
+            <summary>Возвращает значение "TRUE", если 3D точка 2 строго правее 3D точки 1</summary>
+            <remarks>Координаты Y и Z обеих точек равны.
+            Ось X направлена влево.</remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointsPositionControl.Point2AtRightPoint1Only(BaseGeometryYVP.GeomObjects.Point3D,BaseGeometryYVP.GeomObjects.Point3D,System.Double)">
+            <summary>Возвращает значение "TRUE", если 3D точка 2 строго правее 3D точки 1</summary>
+            <remarks>Координаты Y и Z обеих точек равны.
+            Ось X направлена влево. Параметр "SolveError" устанавливает погрешность расчета.</remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointsPositionControl.Point2ОverPoint1Only(BaseGeometryYVP.GeomObjects.Point3D,BaseGeometryYVP.GeomObjects.Point3D)">
+            <summary>Возвращает значение "TRUE", если 3D точка 2 строго выше 3D точки 1</summary>
+            <remarks>Ось Z направлена вверх.</remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointsPositionControl.Point2ОverPoint1Only(BaseGeometryYVP.GeomObjects.Point3D,BaseGeometryYVP.GeomObjects.Point3D,System.Double)">
+            <summary>Возвращает значение "TRUE", если 3D точка 2 строго выше 3D точки 1</summary>
+            <remarks>Ось Z направлена вверх.</remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointsPositionControl.Point2UnderPoint1Only(BaseGeometryYVP.GeomObjects.Point3D,BaseGeometryYVP.GeomObjects.Point3D)">
+            <summary>Возвращает значение "TRUE", если 3D точка 2 строго ниже 3D точки 1</summary>
+            <remarks>Ось Z направлена вверх.</remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointsPositionControl.Point2UnderPoint1Only(BaseGeometryYVP.GeomObjects.Point3D,BaseGeometryYVP.GeomObjects.Point3D,System.Double)">
+            <summary>Возвращает значение "TRUE", если 3D точка 2 строго ниже 3D точки 1</summary>
+            <remarks>Ось Z направлена вверх.</remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointsPositionControl.Point2BeforePoint1Only(BaseGeometryYVP.GeomObjects.Point3D,BaseGeometryYVP.GeomObjects.Point3D)">
+            <summary>Возвращает значение "TRUE", если 3D точка 2 строго перед 3D точкой 1</summary>
+            <remarks>Ось Y направлена к наблюдателю.</remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointsPositionControl.Point2BeforePoint1Only(BaseGeometryYVP.GeomObjects.Point3D,BaseGeometryYVP.GeomObjects.Point3D,System.Double)">
+            <summary>Возвращает значение "TRUE", если 3D точка 2 строго перед 3D точкой 1</summary>
+            <remarks>Ось Y направлена к наблюдателю.</remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointsPositionControl.Point2AfterPoint1Only(BaseGeometryYVP.GeomObjects.Point3D,BaseGeometryYVP.GeomObjects.Point3D)">
+            <summary>Возвращает значение "TRUE", если 3D точка 2 строго за 3D точкой 1</summary>
+            <remarks>Ось Y направлена к наблюдателю.</remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointsPositionControl.Point2AfterPoint1Only(BaseGeometryYVP.GeomObjects.Point3D,BaseGeometryYVP.GeomObjects.Point3D,System.Double)">
+            <summary>Возвращает значение "TRUE", если 3D точка 2 строго за 3D точкой 1</summary>
+            <remarks>Ось Y направлена к наблюдателю.</remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointsPositionControl.CoordinateIsValue(BaseGeometryYVP.GeomObjects.Point3D,System.Double)">
+            <summary>Возвращает номер перечисления "CoordinateValue", указывающего индексы координат, которые соответсвуют заданному значению</summary>
+            <remarks>Возвращается CoordinateValue.None, если координаты точки не равны заданному значению</remarks>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointsPositionControl.PointMinus(BaseGeometryYVP.GeomObjects.Point3D)">
+            <summary> Возвращает значение "True", если имеются отрицательные значения координат</summary>
+            <param name="Point3D"> Заданная 3D точка</param>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointsPositionControl.PointMinus(BaseGeometryYVP.GeomObjects.Point3D,System.Enum)">
+            <summary> Возвращает значение "True" и номер перечисления "CoordinateValue", указывающего индексы координат, имеющих отрицательные значения</summary>
+            <param name="Point3D"> Заданная 3D точка</param>
+            <param name="EnumPointError"> Значение перечисления, указывающего индексы координат, имеющих отрицательные значения</param>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointsPositionControl.PointMinus(BaseGeometryYVP.GeomObjects.Point3D,System.Boolean)">
+            <summary> Возвращает значение "True", если имеются отрицательные значения координат</summary>
+            <remarks> Позволяет отображать MessagerBox, возникающий в случае существования отрицательных значений координат</remarks>
+            <param name="Point3D"> Заданная 3D точка</param>
+            <param name="MessagerBoxShow"> Устанавливает отображение MessagerBox с комментариями, возникающего в случае существования отрицательных значений координат</param>
+        </member>
+        <member name="M:BaseGeometryYVP.GeomObjects.PointsPositionControl.PointMinus(BaseGeometryYVP.GeomObjects.Point3D,System.String,System.Enum)">
+            <summary> Возвращает значение "True" и номер перечисления "CoordinateValue", указывающего индексы координат, имеющих отрицательные значения</summary>
+            <remarks> Позволяет вставлять комментарий в MessagerBox, возникающий в случае существования отрицательного значения координат</remarks>
+            <param name="Point3D"> Заданная 3D точка</param>
+            <param name="CommentMinus"> Пользовательский комментарий в MessagerBox, возникающий в случае существования отрицательные значения координат</param>
+            <param name="EnumPointError"> Значение перечисления, указывающего индексы координат, имеющих отрицательные значения</param>
+        </member>
+        <member name="T:BaseGeometryYVP.GeomObjects.PointsPositionControl.CoordinateValue">
+            <summary> Перечислитель, указывающий индексы координат</summary>
+        </member>
+        <member name="T:BaseGeometryYVP.GeomObjects.PointsPositionControl.PointError">
+            <summary> Перечислитель, указывающий индексы значений анализа задания и принадлежности точек осям и плоскостям системы координат </summary>
+            <remarks>Метки принадлежности 3D точки и ее проекций плоскостям проекций и осям системы координат Монжа</remarks>
+        </member>
+    </members>
+</doc>
