@@ -49,6 +49,7 @@
     <Compile Include="EntityModels\AdvancedBrepShapeRepresentation.cs" />
     <Compile Include="EntityModels\AdvancedFace.cs" />
     <Compile Include="EntityModels\Axis2Placement3D.cs" />
+    <Compile Include="EntityModels\BoundedSurface.cs" />
     <Compile Include="EntityModels\CartesianPoint.cs" />
     <Compile Include="EntityModels\Circle.cs" />
     <Compile Include="EntityModels\ClosedShell.cs" />
@@ -70,6 +71,7 @@
     <Compile Include="EntityModels\Plane.cs" />
     <Compile Include="EntityModels\RepresentationItem.cs" />
     <Compile Include="EntityModels\Surface.cs" />
+    <Compile Include="EntityModels\ToroidalSurface.cs" />
     <Compile Include="EntityModels\Vector.cs" />
     <Compile Include="EntityModels\Vertex.cs" />
     <Compile Include="EntityModels\VertexPoint.cs" />

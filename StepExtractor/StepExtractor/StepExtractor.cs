@@ -412,6 +412,25 @@ namespace StepExtractor
                             tempParamPl.Position = (Axis2Placement3D)parseItemParam(nextEntity.ParsedParams[1][0], entitiesDictionary, childNode);
                             newParam = tempParamPl;
                             break;
+                        case ToroidalSurface.NAME:
+                            ToroidalSurface tempParamTorSu = new ToroidalSurface();
+                            childNode = new TreeNode(tempParamTorSu.StepName);
+                            tempParamTorSu.Name = nextEntity.ParsedParams[0][0].value;
+                            childNode.Nodes.Add("Label: " + tempParamTorSu.Name);
+                            tempParamTorSu.Position = (Axis2Placement3D)parseItemParam(nextEntity.ParsedParams[1][0], entitiesDictionary, childNode);
+                            tempParamTorSu.MajorRadius = (double)doubleConverter.ConvertFromInvariantString(nextEntity.ParsedParams[2][0].value);
+                            childNode.Nodes.Add("MajorRadius: " + tempParamTorSu.MajorRadius);
+                            tempParamTorSu.MinorRadius = (double)doubleConverter.ConvertFromInvariantString(nextEntity.ParsedParams[3][0].value);
+                            childNode.Nodes.Add("MinorRadius: " + tempParamTorSu.MinorRadius);
+                            newParam = tempParamTorSu;
+                            break;
+                        case BoundedSurface.NAME:
+                            BoundedSurface tempParamBoundSu = new BoundedSurface();
+                            childNode = new TreeNode(tempParamBoundSu.StepName);
+                            //tempParamBoundSu.Name = nextEntity.ParsedParams[0][0].value;
+                            childNode.Nodes.Add(/*"Label: " + tempParamBoundSu.Name + */"[Not implemented]");
+                            newParam = tempParamBoundSu;
+                            break;
                         default:
                             //Ошибка генерируется в том случае, если сущность не определена ни одним из алгоритмов => нужно создать новый класс сущности и прописать соответствующей ей алгоритм инициализации.
                             throw new InvalidDataException("Not found entity: " + nextEntity.Name);
