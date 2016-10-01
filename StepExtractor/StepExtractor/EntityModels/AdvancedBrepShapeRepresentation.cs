@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace StepExtractor.EntityModels
 {
-    class AdvancedBrepShapeRepresentation : IEntityModel
+    public class AdvancedBrepShapeRepresentation : IEntityModel
     {
         /// <summary>
         /// Название сущности в STEP файле

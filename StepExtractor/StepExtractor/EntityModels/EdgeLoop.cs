@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace StepExtractor.EntityModels
 {
-    class EdgeLoop : Loop, IEntityModel
+    public class EdgeLoop : Loop, IEntityModel
     {
         /// <summary>
         /// Название сущности в STEP файле

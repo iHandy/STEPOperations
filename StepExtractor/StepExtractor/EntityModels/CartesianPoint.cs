@@ -7,7 +7,7 @@ using BaseGeometryYVP.GeomObjects;
 
 namespace StepExtractor.EntityModels
 {
-    class CartesianPoint : Point3D, IEntityModel
+    public class CartesianPoint : Point3D, IEntityModel
     {
         /// <summary>
         /// Название сущности в STEP файле

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace StepExtractor.EntityModels
 {
-    class FaceBound : IEntityModel
+    public class FaceBound : IEntityModel
     {
         /// <summary>
         /// Название сущности в STEP файле

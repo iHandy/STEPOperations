@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace StepExtractor.EntityModels
 {
-    class Direction : IEntityModel
+    public class Direction : IEntityModel
     {
         /// <summary>
         /// Название сущности в STEP файле

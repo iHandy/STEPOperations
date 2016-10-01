@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace StepExtractor.EntityModels
 {
-    class AdvancedFace : Face, IEntityModel
+    public class AdvancedFace : Face, IEntityModel
     {
         /// <summary>
         /// Название сущности в STEP файле

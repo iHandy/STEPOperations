@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace StepExtractor.EntityModels
 {
-    class Axis2Placement3D : RepresentationItem, IEntityModel
+    public class Axis2Placement3D : RepresentationItem, IEntityModel
     {
         /// <summary>
         /// Название сущности в STEP файле

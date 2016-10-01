@@ -43,7 +43,7 @@ namespace StepExtractor
         /// </summary>
         /// <param name="path">Путь к файлу на диске</param>
         /// <returns>Возвращает список базовых сущностей</returns>
-        public List<BaseEntity> getAllPrimaryEntities(String path)
+        public List<BaseEntity> getAllPrimaryEntities(String path, IExtractOperationsCallback callback)
         {
             //Объявление пустого списка базовых сущностей
             List<BaseEntity> allPrimaryEntities = new List<BaseEntity>();
@@ -59,6 +59,14 @@ namespace StepExtractor
                 {
                     //"Компиляция" объекта регулярного выражения на основании текстового представления
                     Regex regex = new Regex(PATTERN_PRIMARY);
+
+                    int currentStep = 5;
+                    int progressStep = 0;
+                    if (callback != null)
+                    {
+                        int countLinesInFile = System.IO.File.ReadAllLines(path).Length;
+                        progressStep = countLinesInFile > 60 ? countLinesInFile / 60 : 60 / countLinesInFile;
+                    }
 
                     //Цикл выполняется до тех пор, пока результат чтения строк из файла не станет null
                     while ((line = file.ReadLine()) != null)
@@ -107,6 +115,12 @@ namespace StepExtractor
 
                             //Добавление сущности в список сущностей
                             allPrimaryEntities.Add(baseEntity);
+                        }
+
+                        if (callback != null)
+                        {
+                            currentStep += progressStep;
+                            callback.extractionStep(currentStep < 65 ? currentStep : 65);
                         }
                     }
                 }

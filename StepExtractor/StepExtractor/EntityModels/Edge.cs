@@ -5,7 +5,7 @@ using System.Text;
 
 namespace StepExtractor.EntityModels
 {
-    class Edge : IEntityModel
+    public class Edge : IEntityModel
     {
         /// <summary>
         /// Название сущности в STEP файле

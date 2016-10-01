@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace StepExtractor.EntityModels
 {
-    class ManifoldSolidBrep : RepresentationItem, IEntityModel
+    public class ManifoldSolidBrep : RepresentationItem, IEntityModel
     {
         /// <summary>
         /// Название сущности в STEP файле

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace StepExtractor.EntityModels
 {
-    abstract class RepresentationItem : IEntityModel
+    abstract public class RepresentationItem : IEntityModel
     {
         /// <summary>
         /// Название сущности в STEP файле

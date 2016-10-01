@@ -5,7 +5,7 @@ using System.Text;
 
 namespace StepExtractor.EntityModels
 {
-    class ClosedShell : IEntityModel
+    public class ClosedShell : IEntityModel
     {
         /// <summary>
         /// Название сущности в STEP файле

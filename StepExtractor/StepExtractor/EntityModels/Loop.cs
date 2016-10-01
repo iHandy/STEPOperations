@@ -5,7 +5,7 @@ using System.Text;
 
 namespace StepExtractor.EntityModels
 {
-    abstract class Loop
+    public abstract class Loop
     {
         ///// <summary>
         ///// Название сущности в STEP файле

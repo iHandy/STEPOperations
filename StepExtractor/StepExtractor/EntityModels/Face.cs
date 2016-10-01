@@ -5,7 +5,7 @@ using System.Text;
 
 namespace StepExtractor.EntityModels
 {
-    abstract class Face
+    public abstract class Face
     {
         ///// <summary>
         ///// Название сущности в STEP файле

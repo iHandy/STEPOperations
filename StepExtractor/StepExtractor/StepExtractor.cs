@@ -31,6 +31,9 @@ namespace StepExtractor
         private AdvancedBrepShapeRepresentation mRootEntityABSR;
         private TreeNode mRootTreeNode;
 
+        private int progressStep = 0;
+        private int currentProgress = 0;
+
         /// <summary>
         /// Конструктор для создания нового объекта, к которому в дальнейшем можно обращаться за результатами.
         /// </summary>
@@ -70,21 +73,21 @@ namespace StepExtractor
             //Создание объекта парсера для дальнейшей с ним работы
             StepParser stepParser = new StepParser();
 
-            //Получение списка всех сущностей со всеми параметрами в соотвествии со STEP файлом
-            List<BaseEntity> allPrimaryEntities = stepParser.getAllPrimaryEntities(mStepFilePath);
-
             if (mCallback != null)
             {
                 //Отправка коллбэка с промежуточным прогрессом работы
-                mCallback.extractionStep(28);
+                mCallback.extractionStep(5);
             }
+
+            //Получение списка всех сущностей со всеми параметрами в соотвествии со STEP файлом
+            List<BaseEntity> allPrimaryEntities = stepParser.getAllPrimaryEntities(mStepFilePath, mCallback);            
 
             //Создание словаря на основании полученного выше списка. 
             mEntitiesAsDictionary = createDictionary(allPrimaryEntities);
 
             if (mCallback != null)
             {
-                mCallback.extractionStep(43);
+                mCallback.extractionStep(69);
             }
 
             //Иницилизация всех сущностей и дерева TreeView
@@ -140,8 +143,13 @@ namespace StepExtractor
 
                     if (mCallback != null)
                     {
-                        mCallback.extractionStep(49);
+                        mCallback.extractionStep(70);
                     }
+
+                    //Примерное условное вычисление прогресса
+                    int step = 30 / entitiesDictionary.Count;
+                    progressStep = step < 30 ? step : entitiesDictionary.Count / 30;
+                    currentProgress = 70;
 
                     //Запуск рекурсивной инициализации сущностей для каждого вложенного параметра родительской сущности
                     foreach (var itemParam in item.Value.ParsedParams[1])
@@ -164,10 +172,8 @@ namespace StepExtractor
         {
             if (mCallback != null)
             {
-                //Примерное условное вычисление прогресса
-                int addStep = (int)(50 / entitiesDictionary.Count);
-                int step = 49 + (addStep < 1 ? 1 : addStep);
-                mCallback.extractionStep(step < 98 ? step : 98);
+                currentProgress += progressStep;
+                mCallback.extractionStep(currentProgress < 99 ? currentProgress : 99);
             }
 
             //Инициализируемый параметр

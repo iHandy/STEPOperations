@@ -5,7 +5,7 @@ using System.Text;
 
 namespace StepExtractor.EntityModels
 {
-    abstract class Vertex
+    public abstract class Vertex
     {
         /// <summary>
         /// Имя сущности

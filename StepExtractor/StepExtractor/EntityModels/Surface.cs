@@ -5,7 +5,7 @@ using System.Text;
 
 namespace StepExtractor.EntityModels
 {
-    abstract class Surface
+    abstract public class Surface
     {
         /// <summary>
         /// Имя сущности
